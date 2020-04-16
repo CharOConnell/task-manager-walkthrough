@@ -6,8 +6,7 @@ from bson.objectid import ObjectId
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = 'task_manager'
-MONGO_URI_TEST = os.getenv("MONGO_URI")
-app.config["MONGO_URI"] = MONGO_URI_TEST
+app.config["MONGO_URI"] = os.getenv('MONGO_URI','mongodb://localhost')
 
 mongo = PyMongo(app)
 
@@ -19,5 +18,6 @@ def get_tasks():
 
 
 if __name__ == '__main__':
-    app.run(host=os.getenv('IP', "0.0.0.0"), port=int(
-        os.getenv('PORT', "5000")), debug=True)
+    app.run(host=os.getenv('IP','0.0.0.0'), 
+        port=int(os.getenv('PORT','5000')),
+        debug=True)

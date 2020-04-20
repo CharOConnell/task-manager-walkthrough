@@ -3,10 +3,15 @@
         {% for task in tasks %}
         <li>
             <div class="collapsible-header">
-
-                <div class=" task_header col s9">
-                    <i class="material-icons">expand_more</i><strong>{{task.task_name}}</strong> - {{task.due_date}}
+                <div class="col s3">
+                    <i class="material-icons">expand_more</i>
+                    <a class="waves-effect waves-light btn btn-small">Done</a>
+                    <a class="waves-effect waves-light btn btn-small blue">Edit</a>
                 </div>
+                <div class="task-header col s3">  
+                    <strong>{{task.task_name}}</strong> - {{task.due_date}}
+                </div>
+                
             </div>
             <div class="collapsible-body">
                 <span>
